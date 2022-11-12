@@ -1,6 +1,6 @@
 using Random
 using MDPs
-import MDPs: state_space, action_space, action_meaning, horizon, discount_factor, start_state_probability, transition_probability, reward, is_absorbing, step!, reset!, visualize, state, action, in_absorbing_state
+import MDPs: state_space, action_space, action_meaning, start_state_probability, transition_probability, reward, is_absorbing, step!, reset!, visualize, state, action, in_absorbing_state
 
 export BernauliMultiArmedBandit
 
@@ -17,8 +17,6 @@ end
 @inline action_space(mab::BernauliMultiArmedBandit) = IntegerSpace(length(mab.p))
 @inline state_space(::BernauliMultiArmedBandit) = IntegerSpace(2)  # 1 = not pulled yet. 2 = pulled.
 action_meaning(::BernauliMultiArmedBandit, a::Int) = "arm $a"
-@inline discount_factor(::BernauliMultiArmedBandit) = 0.99
-@inline horizon(mab::BernauliMultiArmedBandit) = 1
 
 start_state_probability(mab::BernauliMultiArmedBandit, s::Int) = Float64(s == 1)
 transition_probability(mab::BernauliMultiArmedBandit, s::Int, a::Int, s′::Int) = Float64(s′ == 2)
