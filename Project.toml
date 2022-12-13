@@ -1,7 +1,7 @@
 name = "Bandits"
 uuid = "b4d5ca7c-aff2-4299-bc87-086d9132ad95"
 authors = ["Abhinav Bhatia <abhinav.bhatia.me@gmail.com>"]
-version = "0.2.0"
+version = "0.2.1"
 
 [deps]
 MDPs = "11f886ef-95cd-43ae-b218-d50c093ca059"
